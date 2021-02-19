@@ -1,0 +1,192 @@
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+
+* {
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+:root {
+  --shadowSize: 25px;
+  --shadow: var(--shadowSize) var(--shadowSize) 0 2px rgba(255, 105, 180, 0.3),
+    calc(var(--shadowSize) * -1) calc(var(--shadowSize) * -1) 
+      rgba(135, 206, 235, 0.33);
+  --bigShadow: calc(var(--shadowSize) * 2) calc(var(--shadowSize) * 2) 0 2px
+      rgba(255, 105, 180, 0.5),
+    calc((var(--shadowSize) * 2) * -1) calc((var(--shadowSize) * 2) * -1) 0 2px
+      rgba(135, 206, 235, 0.5);
+}
+
+body{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100vh;
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+}
+
+header{
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  background-color: #fff;
+}
+
+.border {
+  border: solid black;
+  border-width: 3px 3px 5px 5px;
+  border-radius: 225px 20px 225px 20px/20px 225px 20px 225px;
+}
+
+.btn-reset, .btn-newGame  {
+  cursor: pointer;
+  width: 90px;
+  transition: border-left 300ms ease-in-out, padding-left 300ms ease-in-out;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, .2);
+  font-size: .8em;
+}
+
+.btn-reset:hover, 
+.btn-newGame:hover {
+  padding-left: 0.5rem;
+  border-left: 0.3rem solid ;
+  box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, .3);
+}
+
+.field {
+  width: 50px;
+  height: 50px;
+}
+
+.field-player, 
+.field-counter, 
+.field-player1, 
+.field-player2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.5em;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.field-player1 {
+  background-color: lightblue;
+}
+.field-player2 {
+  background-color: lightpink;
+}
+
+.shadow {
+  box-shadow: 
+  2px 4px 3px 2px rgba(0, 0, 0, 0.15)
+}
+
+main{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  height: 20px;
+}
+
+#board {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 900px;
+}
+
+.slot {
+  width: 100px;
+  height: 100px;
+  background-color: whitesmoke;
+}
+
+.hole {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.player1 .hole {
+  background-color: lightblue;
+}
+
+.player2 .hole {
+  background-color: lightpink;
+}
+
+/* ANIMATIONS FEATURES */
+.overlay { 
+  z-index: 9;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  visibility: hidden;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale3d(9, 1, 1) translateX(-10vw);
+    box-shadow: var(--bigShadow);
+  }
+  40% {
+    box-shadow: none;
+    transform: scale3d(1, 1, 1) translateX(0);
+  }
+  45% {
+    opacity: 1;
+    transform: scale3d(0.35, 1.8, 1);
+  }
+  75% {
+    box-shadow: none;
+    transform: scale3d(0.35, 1.8, 1);
+  }
+  80% {
+    box-shadow: var(--shadow);
+    transform: scale3d(1.1, 1, 1);
+  }
+  85% {
+    transform: scale3d(1.4, 1, 1);
+  }
+  100% {
+  }
+}
+
+.message {
+  z-index: 10;
+  visibility: hidden;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  top: 35%;
+  left: 39%;
+  width: 350px;
+  height: 250px;
+  background-color: white;
+  transform-origin: 100% 50%;
+}
+
+.on {
+  visibility: visible;
+  animation: appear 1.5s 
+}
