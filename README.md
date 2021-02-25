@@ -22,4 +22,6 @@ Clone this repo to your desktop.
 * After a player wins, it is possible to reset the game and play again
 
 ## Showroom
+[magali-gs.github.io/connect4/](magali-gs.github.io/connect4/)
+
 ![](showroom.gif)
