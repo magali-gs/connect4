@@ -161,7 +161,6 @@
         round++;
         allSlots.removeClass("player1");
         allSlots.removeClass("player2");
-        console.log("click", round);
         messageContainer.removeClass("on");
         overlay.removeClass("on");
         roundFiled.html('<p> Round ' + round + '</p>');

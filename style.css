@@ -20,7 +20,6 @@ body{
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   min-height: 100vh;
   font-family: 'Bangers', cursive;
   font-size: 1.5rem;
